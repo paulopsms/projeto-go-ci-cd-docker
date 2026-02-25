@@ -10,6 +10,12 @@ jobs:
 
   test:
     runs-on: ${{ matrix.os }}
+    env:
+      DB_HOST: localhost
+      DB_PORT: 5432
+      DB_USER: root
+      DB_PW: root
+      DB_NAME: root
     strategy:
       matrix:
         go_version: ['1.17', '1.18', 'stable']
