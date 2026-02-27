@@ -1,0 +1,21 @@
+name: Docker
+
+on:
+  workflow_call:
+
+jobs:
+
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Docker Build
+        uses: docker/setup-docker-action@v4.7.0
+
+      - name: Docker Login
+        uses: docker/login-action@v3.7.0
+        with:
+          username: paulopsms
+          password: ${{ secrets.PASSWORD_DOCkER_HUB }}
+
