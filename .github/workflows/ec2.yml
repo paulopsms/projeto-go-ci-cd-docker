@@ -36,3 +36,4 @@ jobs:
             export DB_PW=${{ secrets.DB_PW }}
             export DB_NAME=${{ secrets.DB_NAME }}
             export DB_PORT=${{ secrets.DB_PORT }}
+            export PORT=8000
