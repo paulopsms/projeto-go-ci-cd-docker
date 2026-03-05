@@ -21,8 +21,8 @@ jobs:
           REMOTE_HOST: ${{ secrets.SERVER_SSH_HOST }}
           REMOTE_USER: ${{ secrets.SERVER_SSH_USER }}
           # REMOTE_PORT: ${{ secrets.SERVER_SSH_PORT }}
-          TARGET: /home/${{ secrets.REMOTE_TARGET }}
-          EXCLUDE: "postgres-data"
+          TARGET: /home/ec2-user/${{ secrets.REMOTE_TARGET }}
+          EXCLUDE: "postgres-data .git"
 
       - name: SSH Remote Commands
         uses: appleboy/ssh-action@v1.0.3
