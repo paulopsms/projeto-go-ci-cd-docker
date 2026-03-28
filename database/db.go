@@ -23,7 +23,6 @@ func ConectaComBancoDeDados() {
 
     log.Printf("DB_HOST: '%s'", host)
     log.Printf("DB_USER: '%s'", user)
-    log.Printf("DB_PW: '%s'", password)
     log.Printf("DB_NAME: '%s'", name)
     log.Printf("DB_PORT: '%s'", port)
     log.Printf("DB_SSL: '%s'", ssl)
@@ -32,7 +31,8 @@ func ConectaComBancoDeDados() {
 // 	stringDeConexao := "host=localhost user=root password=root dbname=root port=5432 sslmode=disable"
 	DB, err = gorm.Open(postgres.Open(stringDeConexao))
 	if err != nil {
-		log.Panic("Erro ao conectar com banco de dados: %v", err)
+		log.Printf("Erro ao conectar com banco de dados: %v", err)
+		os.Exit(1)
 	}
 
 	DB.AutoMigrate(&models.Aluno{})
