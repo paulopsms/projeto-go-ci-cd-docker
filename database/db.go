@@ -27,6 +27,10 @@ func ConectaComBancoDeDados() {
     log.Printf("DB_PORT: '%s'", port)
     log.Printf("DB_SSL: '%s'", ssl)
 
+    if host == "" || user == "" || name == "" || port == "" || ssl == "" {
+        log.Fatal("Variáveis de ambiente não carregadas corretamente")
+    }
+
     stringDeConexao := "host="+ host + " user=" + user + " password=" + password + " dbname=" + name + " port=" + port + " sslmode=" + ssl
 // 	stringDeConexao := "host=localhost user=root password=root dbname=root port=5432 sslmode=disable"
 	DB, err = gorm.Open(postgres.Open(stringDeConexao))
