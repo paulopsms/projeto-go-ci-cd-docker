@@ -17,6 +17,7 @@ jobs:
       DB_USER: root
       DB_PW: root
       DB_NAME: root
+      DB_SSL: disable
     strategy:
       matrix:
         go_version: ['stable']

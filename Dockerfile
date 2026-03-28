@@ -10,6 +10,7 @@ ENV DB_PORT=5432
 ENV DB_USER=root
 ENV DB_PW=root
 ENV DB_NAME=root
+ENV DB_SSL=disable
 
 
 
