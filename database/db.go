@@ -34,7 +34,7 @@ func ConectaComBancoDeDados() {
     fmt.Println("DB_PORT: '%s'", port)
     fmt.Println("DB_SSL: '%s'", ssl)
 
-	if ssl == nil || ssl == "" {
+	if ssl == "" {
 		ssl = "require"
 	}
 
