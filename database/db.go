@@ -34,9 +34,12 @@ func ConectaComBancoDeDados() {
     fmt.Println("DB_PORT: '%s'", port)
     fmt.Println("DB_SSL: '%s'", ssl)
 
-
+	if ssl == nil || ssl == "" {
+		ssl = "require"
+	}
 
     if host == "" || user == "" || name == "" || port == "" || ssl == "" {
+     	fmt.Println("Variáveis de ambiente não carregadas corretamente")
         log.Panic("Variáveis de ambiente não carregadas corretamente")
     }
 
@@ -45,7 +48,7 @@ func ConectaComBancoDeDados() {
 	DB, err = gorm.Open(postgres.Open(stringDeConexao))
 	if err != nil {
 		log.Printf("Erro ao conectar com banco de dados: %v", err)
-		os.Exit(1)
+// 		os.Exit(1)
 	}
 
 	DB.AutoMigrate(&models.Aluno{})
