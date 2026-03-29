@@ -45,11 +45,11 @@ jobs:
             export DB_PORT=${{ secrets.DB_PORT }}
             export DB_SSL=${{ secrets.DB_SSL }}
             export PORT=8000
-            echo "TESTE DB_HOST=$DB_HOST_TESTE"
-            echo "TESTE DB_USER=$DB_USER_TESTE"
-            echo "TESTE DB_NAME=$DB_PW_TESTE"
-            echo "TESTE DB_PORT=$DB_NAME_TESTE"
-            echo "TESTE DB_SSL=$DB_PORT_TESTE"
+            echo "TESTE DB_HOST=$DB_HOST"
+            echo "TESTE DB_USER=$DB_USER"
+            echo "TESTE DB_NAME=$DB_NAME"
+            echo "TESTE DB_PORT=$DB_PORT"
+            echo "TESTE DB_SSL=${DB_SSL}"
             chmod +x main
             nohup ./main
 #            nohup ./main > nohup.out 2> nohup.err < /dev/null &

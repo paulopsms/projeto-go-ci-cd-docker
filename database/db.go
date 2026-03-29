@@ -6,6 +6,7 @@ import (
 	"github.com/guilhermeonrails/api-go-gin/models"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
+	"fmt"
 )
 
 var (
@@ -26,6 +27,14 @@ func ConectaComBancoDeDados() {
     log.Printf("DB_NAME: '%s'", name)
     log.Printf("DB_PORT: '%s'", port)
     log.Printf("DB_SSL: '%s'", ssl)
+
+    fmt.Println("DB_HOST: '%s'", host)
+    fmt.Println("DB_USER: '%s'", user)
+    fmt.Println("DB_NAME: '%s'", name)
+    fmt.Println("DB_PORT: '%s'", port)
+    fmt.Println("DB_SSL: '%s'", ssl)
+
+
 
     if host == "" || user == "" || name == "" || port == "" || ssl == "" {
         log.Panic("Variáveis de ambiente não carregadas corretamente")
