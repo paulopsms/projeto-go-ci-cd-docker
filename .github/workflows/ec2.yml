@@ -51,5 +51,4 @@ jobs:
             echo "TESTE DB_PORT=$DB_PORT"
             echo "TESTE DB_SSL=${DB_SSL}"
             chmod +x main
-            nohup ./main
-#            nohup ./main > nohup.out 2> nohup.err < /dev/null &
+            nohup ./main > nohup.out 2> nohup.err < /dev/null &
