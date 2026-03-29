@@ -36,7 +36,7 @@ jobs:
             export DB_PW=${{ secrets.DB_PW }}
             export DB_NAME=${{ secrets.DB_NAME }}
             export DB_PORT=${{ secrets.DB_PORT }}
-            export DB_SSL=require
+            export DB_SSL=verify-full
             export PORT=8000
             echo "TESTE DB_HOST=$DB_HOST"
             echo "TESTE DB_USER=$DB_USER"
