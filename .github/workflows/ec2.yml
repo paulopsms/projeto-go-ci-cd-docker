@@ -5,6 +5,13 @@ on:
 jobs:
   ec2:
     runs-on: ubuntu-latest
+    env:
+      DB_HOST_TESTE: ${{ secrets.DB_HOST }}
+      DB_USER_TESTE: ${{ secrets.DB_USER }}
+      DB_PW_TESTE: ${{ secrets.DB_PW }}
+      DB_NAME_TESTE: ${{ secrets.DB_NAME }}
+      DB_PORT_TESTE: ${{ secrets.DB_PORT }}
+      DB_SSL_TESTE: ${{ secrets.DB_SSL }}
     steps:
       - name: Download a Build Artifact
         uses: actions/download-artifact@v8.0.0
@@ -38,11 +45,11 @@ jobs:
             export DB_PORT=${{ secrets.DB_PORT }}
             export DB_SSL=${{ secrets.DB_SSL }}
             export PORT=8000
+            echo "TESTE DB_HOST=$DB_HOST_TESTE"
+            echo "TESTE DB_USER=$DB_USER_TESTE"
+            echo "TESTE DB_NAME=$DB_PW_TESTE"
+            echo "TESTE DB_PORT=$DB_NAME_TESTE"
+            echo "TESTE DB_SSL=$DB_PORT_TESTE"
             chmod +x main
-            echo "TESTE DB_HOST=$DB_HOST"
-            echo "TESTE DB_USER=$DB_USER"
-            echo "TESTE DB_NAME=$DB_NAME"
-            echo "TESTE DB_PORT=$DB_PORT"
-            echo "TESTE DB_SSL=$DB_SSL"
             nohup ./main
 #            nohup ./main > nohup.out 2> nohup.err < /dev/null &
