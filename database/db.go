@@ -28,19 +28,19 @@ func ConectaComBancoDeDados() {
     log.Printf("DB_PORT: '%s'", port)
     log.Printf("DB_SSL: '%s'", ssl)
 
-    fmt.Println("DB_HOST: '%s'", host)
-    fmt.Println("DB_USER: '%s'", user)
-    fmt.Println("DB_NAME: '%s'", name)
-    fmt.Println("DB_PORT: '%s'", port)
-    fmt.Println("DB_SSL: '%s'", ssl)
+    fmt.Printf("DB_HOST: '%s'\n", host)
+    fmt.Printf("DB_USER: '%s'\n", user)
+    fmt.Printf("DB_NAME: '%s'\n", name)
+    fmt.Printf("DB_PORT: '%s'\n", port)
+    fmt.Printf("DB_SSL: '%s'\n", ssl)
 
 	if ssl == "" {
 		ssl = "require"
 	}
 
     if host == "" || user == "" || name == "" || port == "" || ssl == "" {
-     	fmt.Println("Variáveis de ambiente não carregadas corretamente")
-        log.Panic("Variáveis de ambiente não carregadas corretamente")
+     	log.Println("Variáveis de ambiente não carregadas corretamente")
+        os.Exit(1)
     }
 
     stringDeConexao := "host="+ host + " user=" + user + " password=" + password + " dbname=" + name + " port=" + port + " sslmode=" + ssl
@@ -48,7 +48,7 @@ func ConectaComBancoDeDados() {
 	DB, err = gorm.Open(postgres.Open(stringDeConexao))
 	if err != nil {
 		log.Printf("Erro ao conectar com banco de dados: %v", err)
-// 		os.Exit(1)
+		os.Exit(1)
 	}
 
 	DB.AutoMigrate(&models.Aluno{})
