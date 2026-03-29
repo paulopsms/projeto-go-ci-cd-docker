@@ -28,7 +28,7 @@ func ConectaComBancoDeDados() {
     log.Printf("DB_SSL: '%s'", ssl)
 
     if host == "" || user == "" || name == "" || port == "" || ssl == "" {
-        log.Fatal("Variáveis de ambiente não carregadas corretamente")
+        log.Panic("Variáveis de ambiente não carregadas corretamente")
     }
 
     stringDeConexao := "host="+ host + " user=" + user + " password=" + password + " dbname=" + name + " port=" + port + " sslmode=" + ssl
